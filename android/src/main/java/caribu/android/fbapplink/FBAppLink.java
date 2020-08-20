@@ -1,5 +1,3 @@
-// ToastModule.java
-
 package caribu.android.fbapplink;
 
 import com.facebook.react.bridge.NativeModule;
@@ -21,7 +19,8 @@ public class FBAppLink extends ReactContextBaseJavaModule {
   public FBAppLink(ReactApplicationContext reactContext) {
     super(reactContext);
   }
-   @Override
+
+  @Override
   public String getName() {
     return "FBAppLink";
   }
@@ -34,37 +33,21 @@ public class FBAppLink extends ReactContextBaseJavaModule {
           @Override
           public void onDeferredAppLinkDataFetched(AppLinkData appLinkData) {
 
-              System.out.println("Get AppLink");
+            System.out.println("Get AppLink");
 
-
-              if (appLinkData != null){
-                  System.out.println(appLinkData);
-                  System.out.println(appLinkData);
-                  System.out.println(appLinkData);
-                  System.out.println(appLinkData);
-                  System.out.println(appLinkData);
-                  System.out.println(appLinkData);
-                  System.out.println(appLinkData);
-                  System.out.println(appLinkData);
-                  System.out.println(appLinkData);
-                  System.out.println(appLinkData);
-                  System.out.println(appLinkData);
-                  System.out.println(appLinkData);
-                  System.out.println(appLinkData);
-                  System.out.println(appLinkData);
-                  System.out.println(appLinkData);
-                  System.out.println(appLinkData);
-                  System.out.println("applink url is");
-                  System.out.println(appLinkData.getTargetUri());
-                  System.out.println("applink url to string is");
-                  System.out.println(appLinkData.getTargetUri().toString());
-                promise.resolve(appLinkData.getTargetUri().toString());
-              }
+            if (appLinkData != null){
+              System.out.println(appLinkData);
+              System.out.println("applink url is");
+              System.out.println(appLinkData.getTargetUri());
+              System.out.println("applink url to string is");
+              System.out.println(appLinkData.getTargetUri().toString());
+              promise.resolve(appLinkData.getTargetUri().toString());
+            } else {
+              promise.reject("applink data is null");
+            }
           }
-      }
+        }
       );
-
-      //successCallback.invoke(relativeX, relativeY, width, height);
     } catch (Exception e) {
       promise.reject(e.getMessage());
     }

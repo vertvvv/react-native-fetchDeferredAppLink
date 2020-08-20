@@ -9,9 +9,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
-
-
 public class FBAppLinkPackage implements ReactPackage {
 
   @Override
@@ -20,15 +17,12 @@ public class FBAppLinkPackage implements ReactPackage {
   }
 
   @Override
-  public List<NativeModule> createNativeModules(
-                              ReactApplicationContext reactContext) {
+  public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
     List<NativeModule> modules = new ArrayList<>();
 
     modules.add(new FBAppLink(reactContext));
 
     return modules;
   }
-
-
 
 }
